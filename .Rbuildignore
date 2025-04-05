@@ -3,3 +3,4 @@
 ^LICENSE\.md$
 package_build_commands.R
 example_wordplay.R
+^README\.Rmd$

@@ -11,22 +11,20 @@
 #' all_words_summary(dummy_words)
 #' @importFrom dplyr mutate n_distinct %>%
 #' @importFrom tibble tibble
-#' @importFrom stats filter median sd
+#' @importFrom stats median sd
 all_words_summary <- function(df, column = "word") {
   df <- df %>%
-    mutate(
+    dplyr::mutate(
       word_temp = .data[[column]],
-      length = nchar(word_temp)
-    )
+      length = nchar(word_temp))
 
-  tibble(
+  tibble::tibble(
     total_words = nrow(df),
-    unique_words = n_distinct(df$word_temp),
+    unique_words = dplyr::n_distinct(df$word_temp),
     avg_length = mean(df$length),
-    median_length = median(df$length),
-    sd_length = sd(df$length),
+    median_length = stats::median(df$length),
+    sd_length = stats::sd(df$length),
     longest_word = df$word_temp[which.max(df$length)],
     shortest_word = df$word_temp[which.min(df$length)]
   )
 }
-

@@ -17,9 +17,9 @@
 #' @importFrom forcats fct_reorder
 top_words_plot <- function(df, column = "word", top_n = 6) {
   df %>%
-    count(word = .data[[column]], sort = TRUE) %>%
-    slice_head(n = top_n) %>%
-    ggplot(aes(x = fct_reorder(word, n), y = n)) +
+    dplyr::count(word = .data[[column]], sort = TRUE) %>%
+    dplyr::slice_head(n = top_n) %>%
+    ggplot2::ggplot(aes(x = forcats::fct_reorder(word, n), y = n)) +
     geom_col(fill = "darkseagreen") +
     geom_text(aes(label = n), hjust = -0.2) +
     coord_flip() +

@@ -14,15 +14,15 @@
 #' @importFrom stringi stri_reverse
 word_characteristics <- function(df, column = "word") {
   df %>%
-    mutate(
+    dplyr::mutate(
       word = .data[[column]],
-      word_lower = str_to_lower(word),
+      word_lower = stringr::str_to_lower(word),
       length = nchar(word),
-      vowels = str_count(word_lower, "[aeiou]"),
-      consonants = str_count(word_lower, "[b-df-hj-np-tv-z]"),
-      is_palindrome = word_lower == stri_reverse(word_lower),
-      has_repeated_letters = str_detect(word_lower, "(.)\\1")
+      vowels = stringr::str_count(word_lower, "[aeiou]"),
+      consonants = stringr::str_count(word_lower, "[b-df-hj-np-tv-z]"),
+      is_palindrome = word_lower == stringi::stri_reverse(word_lower),
+      has_repeated_letters = stringr::str_detect(word_lower, "(.)\\1")
     ) %>%
-    select(word, length, vowels, consonants,
+    dplyr::select(word, length, vowels, consonants,
            is_palindrome, has_repeated_letters)
 }
