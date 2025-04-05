@@ -1,4 +1,14 @@
-
+#' See distribution of starting letters for words
+#'
+#' @param df A data frame containing a column of words
+#' @param column A character column containing a list of words
+#'
+#' @returns A starting letter distribution plot
+#' @export
+#'
+#' @examples
+#' dummy_words <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
+#' starting_letter_plot(dummy_words)
 starting_letter_plot <- function(df, column = "word") {
   all_letters <- tibble(first_letter = letters)
 

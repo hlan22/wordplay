@@ -1,4 +1,14 @@
-
+#' A high level summary about all the words
+#'
+#' @param df A data frame containing a column of words
+#' @param column A character column containing a list of words
+#'
+#' @returns A tibble
+#' @export
+#'
+#' @examples
+#' dummy_words <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
+#' all_words_summary(dummy_words)
 all_words_summary <- function(df, column = "word") {
   df <- df %>%
     mutate(
