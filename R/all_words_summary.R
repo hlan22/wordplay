@@ -9,6 +9,9 @@
 #' @examples
 #' dummy_words <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
 #' all_words_summary(dummy_words)
+#' @importFrom dplyr mutate n_distinct %>%
+#' @importFrom tibble tibble
+#' @importFrom stats filter median sd
 all_words_summary <- function(df, column = "word") {
   df <- df %>%
     mutate(

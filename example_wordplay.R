@@ -45,10 +45,105 @@ greek_alphabet <- data.frame(
     "Sigma", "Tau", "Upsilon", "Phi", "Chi", "Psi", "Omega"
   ))
 
+dummy_words <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
+starting_letter_plot(dummy_words)
+
+
+column <- "word"
+df_letters <- dummy_words %>%
+  mutate(first_letter = str_to_lower(str_sub(.data[[column]], 1, 1)))
+df_letters
+# Step 2: Count the occurrences of each first letter
+df_letters_count <- df_letters %>%
+  count(df_letters$first_letter) %>%
+  filter(!is.na(df_letters$first_letter))  # Remove NA values
+
+# Step 3: Ensure all letters (A to Z) are represented in the plot
+all_letters <- tibble(first_letter = letters)
+
+# Step 4: Merge with all_letters to ensure each letter is included
+full_df <- all_letters %>%
+  left_join(df_letters_count, by = "first_letter") %>%
+  mutate(n = coalesce(n, 0),  # Replace NA with 0 for missing letters
+         first_letter = factor(first_letter, levels = letters))  # Ensure alphabetical order
+
+# Step 5: Plot the data
+ggplot(full_df, aes(x = first_letter, y = n)) +
+  geom_col(fill = "skyblue") +
+  geom_text(aes(label = n), vjust = -0.5) +
+  labs(title = "Distribution of Starting Letters", x = "Starting Letter", y = "Count") +
+  theme_minimal()
+
+# Example data
+df <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
+
+# Step 1: Create the first_letter column
+df_letters <- df %>%
+  mutate(first_letter = str_to_lower(str_sub(word, 1, 1)))
+
+# Step 2: Count the occurrences of each first letter
+df_letters_count <- df_letters %>%
+  count(df$first_letter) %>%
+  filter(!is.na(df$first_letter))  # Remove NA values
+
+# Step 3: Ensure all letters (A to Z) are represented in the plot
+all_letters <- tibble(first_letter = letters)  # Ensure this is a tibble
+
+# Step 4: Merge with all_letters to ensure each letter is included
+full_df <- all_letters %>%
+  left_join(df_letters_count, by = "first_letter") %>%
+  mutate(n = coalesce(n, 0),  # Replace NA with 0 for missing letters
+         first_letter = factor(df$first_letter, levels = letters))  # Ensure alphabetical order
+
+# Step 5: Plot the data
+ggplot(full_df, aes(x = first_letter, y = n)) +
+  geom_col(fill = "skyblue") +
+  geom_text(aes(label = n), vjust = -0.5) +
+  labs(title = "Distribution of Starting Letters", x = "Starting Letter", y = "Count") +
+  theme_minimal()
+
+
+
+# Step 1: Create the first_letter column
+df_letters <- df %>%
+  mutate(first_letter = str_to_lower(str_sub(word, 1, 1)))
+
+head(df_letters)
+
+# Step 2: Count the occurrences of each first letter
+df_letters_count <- df_letters %>%
+  count(first_letter) %>%
+  filter(!is.na(first_letter))  # Remove NA values
+
+# Step 3: Ensure all letters (A to Z) are represented in the plot
+all_letters <- tibble(first_letter = letters)  # Ensure this is a tibble
+
+# Step 4: Merge with all_letters to ensure each letter is included
+full_df <- all_letters %>%
+  left_join(df_letters_count, by = "first_letter") %>%
+  mutate(n = coalesce(n, 0),  # Replace NA with 0 for missing letters
+         first_letter = factor(first_letter, levels = letters))  # Ensure alphabetical order
+
+# Step 5: Plot the data
+ggplot(full_df, aes(x = first_letter, y = n)) +
+  geom_col(fill = "skyblue") +
+  geom_text(aes(label = n), vjust = -0.5) +
+  labs(title = "Distribution of Starting Letters", x = "Starting Letter", y = "Count") +
+  theme_minimal()
 
 
 
 
+
+
+
+#
+#
+#
+#
+#
+#
+#
 
 
 plot_word_stats <- function(df, column = "word", top_n_words = 15) {

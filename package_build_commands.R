@@ -42,10 +42,15 @@ document()
 
 ?word_length_plot
 
+devtools::document()
 
+devtools::check()
 
+devtools::install()
 
-
-
-
+use_testthat()
+use_test("all_words_summary")
+use_test("top_words_plot")
+use_test("word_charactersitics")
+use_test("word_length_plot")
 

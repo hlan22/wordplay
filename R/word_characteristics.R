@@ -9,6 +9,9 @@
 #' @examples
 #' dummy_words <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
 #' word_characteristics(dummy_words)
+#' @importFrom dplyr mutate select %>%
+#' @importFrom stringr str_to_lower str_count str_detect
+#' @importFrom stringi stri_reverse
 word_characteristics <- function(df, column = "word") {
   df %>%
     mutate(
@@ -20,5 +23,6 @@ word_characteristics <- function(df, column = "word") {
       is_palindrome = word_lower == stri_reverse(word_lower),
       has_repeated_letters = str_detect(word_lower, "(.)\\1")
     ) %>%
-    select(word, length, vowels, consonants, is_palindrome, has_repeated_letters)
+    select(word, length, vowels, consonants,
+           is_palindrome, has_repeated_letters)
 }
