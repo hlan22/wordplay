@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   wordplay: wordplay.html
-last_built: 2025-04-20T07:48Z
+last_built: 2025-04-20T23:30Z
 urls:
   reference: https://hlan22.github.io/wordplay/reference
   article: https://hlan22.github.io/wordplay/articles
