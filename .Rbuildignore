@@ -1,6 +1,10 @@
 ^wordplay\.Rproj$
 ^\.Rproj\.user$
-^LICENSE\.md$
+^LICENSE-CC$
+^LICENSE-MIT$
 package_build_commands.R
 example_wordplay.R
 ^README\.Rmd$
+^codecov\.yml$
+^\.github$
+^LICENSE\.md$

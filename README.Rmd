@@ -25,6 +25,7 @@ knitr::opts_chunk$set(
 [![License: CC0](https://img.shields.io/badge/License-CC0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 [![R version](https://img.shields.io/badge/R-%3E%3D4.0.0-blue)](https://github.com/hlan22/wordplay/blob/main/DESCRIPTION)
 <!-- [![Dev version](https://img.shields.io/badge/dev%20version-1.0.0-brightgreen)](https://github.com/hlan22/wordplay) -->
+[![CRAN status](https://www.r-pkg.org/badges/version/wordplay)](https://CRAN.R-project.org/package=wordplay)
 <!-- badges: end -->
 
 The aim of `wordplay` is to learn more about your favorite list of words! 
@@ -36,7 +37,8 @@ Learn about metrics such as length, frequent starting letters, and much more wit
 * [Functions](#functions)
 * [Dependencies](#dependencies)
 * [Example Use](#example-use)
-* [Licenses](#Licenses)
+* [Code of Conduct](#code-of-conduct)
+* [Licenses](#licenses)
 
 ## Installation
 
@@ -97,6 +99,11 @@ word_length_plot(greek_alphabet)
 top_words_plot(greek_alphabet)
 ```
 
+
+## Code of Conduct
+
+Please note that `wordplay` is released with a [Code of Conduct](https://hlan22.github.io/wordplay/CODE_OF_CONDUCT.md). 
+By contributing to this project, you agree to abide by its terms.
 
 ## Licenses
 

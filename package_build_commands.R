@@ -105,14 +105,35 @@ use_package("ggplot2")
 rename_files("function_name", "new_function_name")
 # MUST redo document() if so
 
-# initializa a basic README.Rmd for your github
+# --------------- FIX UP README ------------------------------
+
+# initialize a basic README.Rmd for your github
 devtools::use_readme_rmd()
 #> ✔ Writing 'README.Rmd'.
 #> ✔ Adding "^README\\.Rmd$" to '.Rbuildignore'.
 #> ☐ Update 'README.Rmd' to include installation instructions.
 #> ✔ Writing '.git/hooks/pre-commit'.
 
+# add code coverage
+usethis::use_coverage()
+# report the R CMD check status of your development package
+usethis::use_github_actions()
+# reports the current version of your package on CRAN
+usethis::use_cran_badge()
+
 # make the README.md file with plots and examples
 devtools::build_readme()
 
+# --------------- OTHER IMPORTANT ------------------------------
+
+# add licenses, which will update DESCRIPTION
+use_cc0_license()
+use_mit_license()
+# also makes that additional license with year and authors
+
 # --------------- FINAL PRODUCT ------------------------------
+
+# --------------- EXTRA THINGS  ------------------------------
+
+# make a NEWS.md file
+usethis::use_news_md()
