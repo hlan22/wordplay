@@ -8,3 +8,6 @@ example_wordplay.R
 ^codecov\.yml$
 ^\.github$
 ^LICENSE\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

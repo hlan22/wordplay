@@ -137,3 +137,23 @@ use_mit_license()
 
 # make a NEWS.md file
 usethis::use_news_md()
+
+# pkgdown website
+usethis::use_pkgdown()
+#> ✔ Setting active project to "/tmp/RtmpVinU26/mypackage".
+#> ✔ Adding "^_pkgdown\\.yml$", "^docs$", and "^pkgdown$" to
+#>   '.Rbuildignore'.
+#> ✔ Adding "docs" to '.gitignore'.
+#> ✔ Writing '_pkgdown.yml'.
+#> ☐ Edit '_pkgdown.yml'.
+#> ✔ Setting active project to "<no active project>".
+pkgdown::build_site()
+
+usethis::use_pkgdown_github_pages()
+
+# make a logo eventually!
+# usethis::use_logo()
+
+# make a vignette for the package
+usethis::use_vignette("wordplay")
+

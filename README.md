@@ -16,7 +16,8 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 CC0](https://img.shields.io/badge/License-CC0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 [![R
 version](https://img.shields.io/badge/R-%3E%3D4.0.0-blue)](https://github.com/hlan22/wordplay/blob/main/DESCRIPTION)
-<!-- [![Dev version](https://img.shields.io/badge/dev%20version-1.0.0-brightgreen)](https://github.com/hlan22/wordplay) -->
+[![Dev
+version](https://img.shields.io/badge/dev%20version-1.0.0-brightgreen)](https://github.com/hlan22/wordplay)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/wordplay)](https://CRAN.R-project.org/package=wordplay)
 <!-- badges: end -->
