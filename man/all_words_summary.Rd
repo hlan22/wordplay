@@ -4,10 +4,10 @@
 \alias{all_words_summary}
 \title{A high level summary about all the words}
 \usage{
-all_words_summary(df, column = "word")
+all_words_summary(data, column = "word")
 }
 \arguments{
-\item{df}{A data frame containing a column of words}
+\item{data}{A data frame containing a column of words}
 
 \item{column}{A character column containing a list of words}
 }
@@ -18,6 +18,7 @@ A tibble
 A high level summary about all the words
 }
 \examples{
-dummy_words <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
-all_words_summary(dummy_words)
+example_words <- data.frame(word_column = c("alfa", "bravo", "charlie", "delta"))
+all_words_summary(data = example_words, column = "word_column")
+
 }

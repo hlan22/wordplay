@@ -1,21 +1,33 @@
 #' An in-depth summary of each word
 #'
-#' @param df A data frame containing a column of words
+#' @param data A data frame containing a column of words
 #' @param column A character column containing a list of words
 #'
 #' @returns A data frame
 #' @export
 #'
 #' @examples
-#' dummy_words <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
-#' word_characteristics(dummy_words)
+#' example_words <- data.frame(word_column = c("alfa", "bravo", "charlie", "delta", "civic"))
+#' word_characteristics(data = example_words, column = "word_column")
+#'
 #' @importFrom dplyr mutate select %>%
 #' @importFrom stringr str_to_lower str_count str_detect
 #' @importFrom stringi stri_reverse
-word_characteristics <- function(df, column = "word") {
-  df %>%
+word_characteristics <- function(data, column = "word") {
+  # Input checks
+  if (!is.data.frame(data)) {
+    stop("`data` must be a data frame.")
+  }
+  if (!column %in% colnames(data)) {
+    stop(paste("Column", column, "does not exist in the data frame."))
+  }
+  if (!is.character(data[[column]]) && !is.factor(data[[column]])) {
+    stop(paste("Column", column, "must be of type character or factor."))
+  }
+
+  data %>%
     dplyr::mutate(
-      word = .data[[column]],
+      word = as.character(.data[[column]]),
       word_lower = stringr::str_to_lower(word),
       length = nchar(word),
       vowels = stringr::str_count(word_lower, "[aeiou]"),
@@ -24,5 +36,5 @@ word_characteristics <- function(df, column = "word") {
       has_repeated_letters = stringr::str_detect(word_lower, "(.)\\1")
     ) %>%
     dplyr::select(word, length, vowels, consonants,
-           is_palindrome, has_repeated_letters)
+                  is_palindrome, has_repeated_letters)
 }

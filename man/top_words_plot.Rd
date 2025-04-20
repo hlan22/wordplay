@@ -2,12 +2,12 @@
 % Please edit documentation in R/top_words_plot.R
 \name{top_words_plot}
 \alias{top_words_plot}
-\title{Top words bar plot}
+\title{Plot the most common words in a column of a dataframe.}
 \usage{
-top_words_plot(df, column = "word", top_n = 6)
+top_words_plot(data, column = "word", top_n = 6)
 }
 \arguments{
-\item{df}{A data frame containing a column of words}
+\item{data}{A data frame containing a column of words}
 
 \item{column}{A character column containing a list of words}
 
@@ -17,9 +17,10 @@ top_words_plot(df, column = "word", top_n = 6)
 A ggplot2 bar chart of the most common words
 }
 \description{
-See most common words in a column of a dataframe.
+Plot the most common words in a column of a dataframe.
 }
 \examples{
-dummy_words <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
-top_words_plot(dummy_words)
+example_words <- data.frame(word_column = c("alfa", "bravo", "charlie", "delta", "alfa"))
+top_words_plot(example_words, column = "word_column", top_n = 4)
+
 }

@@ -2,22 +2,23 @@
 % Please edit documentation in R/word_length_plot.R
 \name{word_length_plot}
 \alias{word_length_plot}
-\title{See word length distribution}
+\title{Plot word length distribution}
 \usage{
-word_length_plot(df, column = "word")
+word_length_plot(data, column = "word")
 }
 \arguments{
-\item{df}{A data frame containing a column of words}
+\item{data}{A data frame containing a column of words}
 
 \item{column}{A character column containing a list of words}
 }
 \value{
-A word length plot
+A ggplot2 bar chart showing the distribution of word lengths
 }
 \description{
-See word length distribution
+Plot word length distribution
 }
 \examples{
-dummy_words <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
-word_length_plot(dummy_words)
+example_words <- data.frame(my_words = c("alfa", "bravo", "charlie", "delta"))
+word_length_plot(data = example_words, column = "my_words")
+
 }

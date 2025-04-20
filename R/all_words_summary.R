@@ -1,19 +1,31 @@
 #' A high level summary about all the words
 #'
-#' @param df A data frame containing a column of words
+#' @param data A data frame containing a column of words
 #' @param column A character column containing a list of words
 #'
 #' @returns A tibble
 #' @export
 #'
 #' @examples
-#' dummy_words <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
-#' all_words_summary(dummy_words)
+#' example_words <- data.frame(word_column = c("alfa", "bravo", "charlie", "delta"))
+#' all_words_summary(data = example_words, column = "word_column")
+#'
 #' @importFrom dplyr mutate n_distinct %>%
 #' @importFrom tibble tibble
 #' @importFrom stats median sd
-all_words_summary <- function(df, column = "word") {
-  df <- df %>%
+all_words_summary <- function(data, column = "word") {
+  # checks for input data types
+  if (!is.data.frame(data)) {
+    stop("`data` must be a data frame.")
+  }
+  if (!column %in% colnames(data)) {
+    stop(paste("Column", column, "does not exist in the data frame."))
+  }
+  if (!is.character(data[[column]]) && !is.factor(data[[column]])) {
+    stop(paste("Column", column, "must be of type character or factor."))
+  }
+
+  df <- data %>%
     dplyr::mutate(
       word_temp = .data[[column]],
       length = nchar(word_temp))

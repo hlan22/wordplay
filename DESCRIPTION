@@ -1,6 +1,6 @@
 Package: wordplay
-Title: Analyzes A List Of Words
-Version: 0.0.0.9000
+Title: Analyze Your Favorite List Of Words!
+Version: 1.0.0
 Authors@R: 
     person("Heidi", "Lantz", , "heidilantz22@gmail.com", role = c("aut", "cre"))
 Description: This package contains functions that will analyze your favorite list of words. It observes metrics such as most common starting letter, average length of words, and much more wordplay!

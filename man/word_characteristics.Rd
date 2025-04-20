@@ -4,10 +4,10 @@
 \alias{word_characteristics}
 \title{An in-depth summary of each word}
 \usage{
-word_characteristics(df, column = "word")
+word_characteristics(data, column = "word")
 }
 \arguments{
-\item{df}{A data frame containing a column of words}
+\item{data}{A data frame containing a column of words}
 
 \item{column}{A character column containing a list of words}
 }
@@ -18,6 +18,7 @@ A data frame
 An in-depth summary of each word
 }
 \examples{
-dummy_words <- data.frame(word = c("alfa", "bravo", "charlie", "delta"))
-word_characteristics(dummy_words)
+example_words <- data.frame(word_column = c("alfa", "bravo", "charlie", "delta", "civic"))
+word_characteristics(data = example_words, column = "word_column")
+
 }
